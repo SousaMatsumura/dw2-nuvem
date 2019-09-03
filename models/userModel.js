@@ -19,27 +19,25 @@ class User {
          * Deveria usar metódos assincronos
          */
 
-        let users = [];
-        try {
-            let data = fs.readFileSync(dbPath);
-            if (data) {
-                users = JSON.parse(data.toString());
-            }
-        } catch (e) { }
+        let users = readUsers();
         users.push(this);
         fs.writeFileSync(dbPath, JSON.stringify(users));
     }
 
     static show() {
-        let users = [];
-        try {
-            let data = fs.readFileSync(dbPath);
-            if (data) {
-                users = JSON.parse(data.toString());
-            }
-        } catch (e) { }
+        let users = readUsers();
         return users;
     }
+
+}
+
+const readUsers = () => {
+    let users = [];
+    try {
+        let data = fs.readFileSync(dbPath);
+        if (data) users = JSON.parse(data.toString());
+    } catch (e) { };
+    return users;
 }
 
 module.exports = User;
