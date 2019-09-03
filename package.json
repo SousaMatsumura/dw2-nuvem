@@ -1,0 +1,28 @@
+{
+  "name": "dw2-nuvem",
+  "version": "1.0.0",
+  "description": "### Projeto para a disciplina de Desenvolvimento Web 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SousaMatsumura/dw2-nuvem.git.git"
+  },
+  "author": "Gabriel de Sousa Matsumura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SousaMatsumura/dw2-nuvem.git/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
