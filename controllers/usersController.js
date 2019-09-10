@@ -8,14 +8,36 @@ exports.postNewUser = (req, res, next) => {
 };
 
 exports.getNewUser = (req, res, next) => {
-    res.render('newUSer');   
+    res.render('newUser');   
 };
 
 exports.getUsers = (req, res, next) => {
-    res.render('users', {
-      'users': User.show(),
-    });
+    User.show()
+    .catch((err) => {
+        console.log(err);
+        return [];
+    })
+    .then((users) => {
+        res.render('users', { 
+            users: users,
+        })
+    })
 };
+
+exports.getEditUser = (req, res, next) =>{
+    const id = req.params.iduser;
+    User.getById(id)
+    .then((user) => {
+        res.render('editUser', {
+            user : user
+        });
+        console.log(user);
+    })
+    .catch((err) =>{
+        console.log(err); 
+    });
+}
+
 
 /*module.exports = [
     postNewUser,
